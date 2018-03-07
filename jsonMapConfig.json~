@@ -1,0 +1,8 @@
+{
+"#firstName":"data/vornamen.json",
+"#lastNames":"data/nachnamen.json",
+"#streets" : "data/strassen.json",
+"#compound": "{'#file':'data/plz-ort.json', '#city':1, '#zipcode':0}",
+"#randomNumber": "{'#password': '6'}",
+"#randomCompoundNumber": "{'#file': 'data/vorwahlen.json', '#mobileNumber': 6}"
+}

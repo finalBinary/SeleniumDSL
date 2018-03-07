@@ -1,0 +1,374 @@
+//package login;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebClient;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import java.util.List;
+import org.openqa.selenium.remote.DesiredCapabilities;
+//import org.openqa.selenium.By;
+
+
+public class test2 {
+	public static void main(String[] args) {
+		// Create a new instance of the Firefox driver
+		/*DesiredCapabilities dCaps;
+		  dCaps = new DesiredCapabilities();
+		  dCaps.setJavascriptEnabled(true);
+		  dCaps.setCapability("takesScreenshot", false);
+		  */
+
+		String username = "r.p.8428";//"the_crawler@mytrashmailer.com";
+		String password = "123ABC";
+
+		System.setProperty("webdriver.chrome.driver", "./chromedriver");
+		WebDriver driver = new ChromeDriver();
+		//WebClient webClient = new WebClient();
+
+		//WebDriver driver = new HtmlUnitDriver();// new ChromeDriver();//FirefoxDriver();
+		//driver.getOptions().setJavaScriptEnabled(true);
+		//  Wait For Page To Load
+		// Put a Implicit wait, this means that any search for elements on the page
+		//could take the time the implicit wait is set for before throwing exception 
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		// Navigate to URL
+
+		driver.get("https://www.google.com/");
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		System.out.println(driver.getTitle());
+		//driver.find_element_by_xpath("//div/input[@name='username']").send_keys(username)
+		//driver.find_element_by_xpath("//div/input[@name='password']").send_keys(password)
+
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/div[1]/input
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/div[2]/input
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/span/button
+		//driver.findElement(By.cssSelector("input[name='username']"));//.sendKeys(username);
+		driver.findElement(By.xpath(".//*[@id='react-root']/div/article/div/div[1]/div/form/div[1]/input[@name='username']")).sendKeys(username);
+		driver.findElement(By.xpath("//*[@id=\"react-root\"]/div/article/div/div[1]/div/form/div[2]/input[@name='password']")).sendKeys(password);
+		driver.findElement(By.xpath("//*[@id=\"react-root\"]/div/article/div/div[1]/div/form/span/button")).click();
+		//System.out.println("after username");
+
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try{
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e){
+		}
+
+
+		driver.get("https://www.instagram.com/ladygaga");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try{
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e){
+		}
+
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='hplogo']")));
+		System.out.println(element.getText());
+
+		driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/main/article/header/div[2]/ul/li[3]/a")).click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try{
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e){
+		}
+
+		driver.close();
+
+		/*WebElement elm = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/ul"));
+		//WebElement elm = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/ul/li[1]"));
+		elm.findElement(By.xpath("//div/div[1]/div/div[1]/a"));
+		try{
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e){
+		}
+
+		int count =(driver.findElements(By.xpath("//div[@role='dialog']//li"))).size();
+		System.out.println(count);
+
+		//int bufcount=0;
+		do{
+
+			//driver.executeScript("document.querySelector('div[role=dialog] ul').parentNode.scrollTop=1e100");
+			if (driver instanceof JavascriptExecutor) {
+				((JavascriptExecutor)driver).executeScript("document.querySelector('div[role=dialog] ul').parentNode.scrollTop=1e100");
+			} else {
+				throw new IllegalStateException("This driver does not support JavaScript!");
+			}
+			try{
+				TimeUnit.SECONDS.sleep(2);
+			} catch (InterruptedException e){
+			}
+			//try{
+			//	(new WebDriverWait(driver, 5)).until(checkdif(driver));
+			//} catch(Exception e){
+			//	break;
+			//}
+		}while(checkdif(driver));
+		*/
+		/*
+		   if (driver instanceof JavascriptExecutor) {
+		   ((JavascriptExecutor)driver).executeScript("document.querySelector('div[role=dialog] ul').parentNode.scrollTop=1e100");
+		   } else {
+		   throw new IllegalStateException("This driver does not support JavaScript!");
+		   }
+		   try{
+		   TimeUnit.SECONDS.sleep(2);
+		   } catch (InterruptedException e){
+		   }
+		   */
+
+		//html/body/div[2]/div/div[2]/div/div[2]/ul/li[3]/div/div[1]/div/div[1]/a
+		//html/body/div[2]/div/div[2]/div/div[2]/ul/li[2]/div/div[1]/div/div[1]/a
+		//https://www.instagram.com/explore/tags/follow4/
+		
+		/*List<WebElement> FollowerList = driver.findElements(By.xpath("//div/div[1]/div/div[1]/a"));
+		count = FollowerList.size(); //(driver.findElements(By.xpath("//div[@role='dialog']//li"))).size();
+		System.out.println(count);
+
+		for(WebElement e: FollowerList){
+			//(e.findElement(By.xpath("//div/div[1]/div/div[1]/a")));
+			//System.out.println((e.findElement(By.xpath("//div/div[1]/div/div[1]/a"))).getAttribute("title"));
+			System.out.println(e.getAttribute("title"));
+			System.out.println(e.getAttribute("outerHTML"));
+		}*/
+
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]/div/article/div/div[1]/div/form/div[2]/input[@name='password']")).sendKeys(password);
+
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/span/button
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/span/button
+		//*[@id="react-root"]/div/article/div/div[1]/div/form/span/button
+		//span/button
+		//html/body
+		//*[@id="react-root"]/div
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]/div/article/div/div[1]/div/form/span/button"));//.click();
+		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]"));//.click();
+
+		//driver.setJavascriptEnabled(true);
+		/*WebElement element = driver.findElement(By.xpath("//*[@id=\"react-root\"]"));
+		  String content = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].innerHTML", element);
+		  System.out.println(content);
+		  */
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		/*System.out.println(driver.getTitle());
+
+		driver.findElement(By.xpath("//html/body/div[2]/div/button")).click();*/
+
+		//*[@id="react-root"]/section/nav/div/div/div/div[2]/input
+		//*[@id="react-root"]/section/nav/div/div/div/div[2]/input
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/nav/div/div/div/div[2]/input")).click();
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/nav/div/div/div/div[2]/input")).sendKeys("#follow4follow");
+		//driver.findElement(By.xpath("//*[@id=\"react-root\"]/section/nav/div/div/div/div[2]/input")).sendKeys(Keys.ENTER);
+
+		/*driver.get("https://www.instagram.com/explore/tags/follow4follow/");
+
+		try{
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e){
+		}*/
+
+		//wd.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+		/*System.out.println("befor scroll");
+		if (driver instanceof JavascriptExecutor) {
+			((JavascriptExecutor)driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		} else {
+			throw new IllegalStateException("This driver does not support JavaScript!");
+		}
+		System.out.println("after scroll");*/
+
+		//By.XPath("//table[contains(@id, "ReportViewer_fixedTable")]")
+		//*[@id="pImage_31"]
+		//*[contains(@id, "pImage")]
+		//css=a[id*='pImage_']
+		
+		/*List<WebElement> pics = driver.findElements(By.xpath("//*[contains(@id, \"pImage\")]") );
+		if(pics.size() != 0){
+			System.out.println("in first if");
+			System.out.println((pics.get(0).getAttribute("id")).substring(7));
+			System.out.println(pics.get(pics.size()-1).getAttribute("id"));
+		} else {
+
+		}
+
+		System.out.println("after first if");
+		*/
+
+		//*[@id="react-root"]/section/main/article/div[1]/div/div[1]/a[2]
+		//*[@id="react-root"]/section/main/article/div[1]/div/div[1]/a[1]
+
+		/*
+		int bufcount=0;
+		WebElement bufel = null;
+
+		while(bufcount<4){
+			System.out.println("In while "+bufcount);
+
+			if(driver.findElements( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") ).size() != 0){
+				System.out.println("In if "+bufcount);
+				bufel = driver.findElement( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") );
+				bufel =((bufel.findElement(By.xpath(".."))).findElement(By.xpath(".."))).findElement(By.xpath(".."));
+				bufel.click();
+				try{
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e){
+				}
+				driver.findElement(By.xpath("//html/body/div[2]/div/button")).click();
+			}else {
+				//scrollpage
+			}
+			bufcount++;
+		}
+
+		try{
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e){
+		}
+
+		bufel.click();
+		System.out.println("bufel click after while");
+
+		try{
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e){
+		}*/
+
+		//html/body/div[2]/div/div[2]/div/article/header/div/a
+		//html/body/div[2]/div/div[2]/div/article/header/div/a
+
+		/*
+		System.out.println(driver.findElement( By.xpath("/html/body/div[2]/div/div[2]/div/article/div[2]/ul/li[1]/h1/span")).getAttribute("outerHTML"));
+
+		try{
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e){
+		}
+
+
+		driver.findElement( By.xpath("/html/body/div[2]/div/div[2]/div/article/header/div/a") ).click();
+		System.out.println("after usr click");
+
+		try{
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e){
+		}
+
+		//[@id="react-root"]/section/main/article/header/div[2]/ul/li[1]/span/span
+		System.out.println(driver.findElement( By.xpath("//*[@id=\"react-root\"]/section/main/article/header/div[2]/ul/li[1]/span/span")).getAttribute("innerHTML"));
+
+		System.out.println(driver.findElement( By.xpath("//*[@id=\"react-root\"]/section/main/article/header/div[2]/ul/li[2]/a/span")).getAttribute("title"));
+
+		System.out.println(driver.findElement( By.xpath("//*[@id=\"react-root\"]/section/main/article/header/div[2]/ul/li[3]/a/span")).getAttribute("innerHTML"));
+
+		try{
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e){
+		}
+
+		driver.navigate().back();
+		System.out.println("after back");
+
+		try{
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e){
+		}
+		*/
+		/*
+		   if(driver.findElements( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") ).size() != 0){
+		   System.out.println("In if "+bufcount);
+		   driver.findElement( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") ).click();
+		   try{
+		   TimeUnit.SECONDS.sleep(2);
+		   } catch (InterruptedException e){
+		   }
+		   driver.findElement(By.xpath("//html/body/div[2]/div/button")).click();
+		   }else {
+		//scrollpage
+		   }
+		   */
+		//driver.navigate().back()
+
+		//html/body/div[2]/div/div[2]/div/article/div[2]/ul/li[1]/h1/span
+
+
+		//List<WebElement> allFormChildElements = driver.findElements(By.xpath("//*[@id=\"react-root\"]/*"));
+		//List<WebElement> allFormChildElements = formElement.findElements(By.xpath("*"));
+		//for(WebElement item : allFormChildElements )
+		//{
+		//	System.out.println(item.getTagName());
+		//}
+		// Maximize the window.
+
+		//driver.manage().window().maximize();
+
+		//System.out.println("hello");
+		// Enter UserName
+		//driver.findElement(By.id("Email")).sendKeys(" YOUR USER NAME");
+		// Enter Password
+		//driver.findElement(By.id("Passwd")).sendKeys("YOUR PASSWORD");
+		// Wait For Page To Load
+		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		// Click on 'Sign In' button
+		//driver.findElement(By.id("signIn")).click();
+		//Click on Compose Mail.
+		//driver.findElement(By.xpath("//div[@class='z0']/div")).click();
+		// Click on the image icon present in the top right navigational Bar
+		//driver.findElement(By.xpath("//div[@class='gb_1 gb_3a gb_nc gb_e']/div/a")).click();
+		//Click on 'Logout' Button
+		//driver.findElement(By.xpath("//*[@id='gb_71']")).click();
+		//Close the browser.
+
+		//driver.close();
+	}
+
+	static int counter = 0;
+
+	static boolean checkdif(WebDriver driver){
+		int new_counter = 0;
+
+		new_counter = (driver.findElements(By.xpath("//div[@role='dialog']//li"))).size();
+		System.out.println("new counter: "+new_counter);
+		System.out.println("counter: "+counter);
+		if(counter != new_counter){
+			counter = new_counter;
+			return true;
+		} else{
+			return false;
+		}
+	} 
+}
+
+/*
+   int bufcount=0;
+   while(true){
+
+   if(driver.findElements( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") ).size() != 0){
+   driver.findElement( By.xpath("//*[@id=\"pImage_"+bufcount+"\"]") ).click();
+//go to user or whatever
+exitpic();
+}else {
+//scrollpage
+}
+
+driver.navigate().back()
+
+/html/body/div[2]/div/div[2]/div/article/div[2]/ul/li[1]/h1/span
+/html/body/div[2]/div/div[2]/div/article/div[2]/ul/li[1]/h1/span
+
+bufcount++;
+   }
+   */

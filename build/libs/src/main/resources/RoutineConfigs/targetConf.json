@@ -1,0 +1,49 @@
+{"targets":
+	[
+		{
+			"target":"lst-ib",
+			"value":"#firstName",
+			"type":"INPUT" 
+ 		},
+		{
+			"target":"lst-ib",
+			"value":"#lastNames",
+			"type":"INPUT"
+		},
+		{
+			"target":"lst-ib",
+			"value":"#city",
+			"type":"INPUT"
+		},
+		{
+			"target":"lst-ib",
+			"value":"; ",
+			"type":"INPUT"
+		},
+		{
+			"target":"lst-ib",
+			"value":"#password",
+			"type":"INPUT"
+		},
+		{
+			"target":"lst-ib",
+			"value":" telNr. : ",
+			"type":"INPUT"
+		},
+		{
+			"target":"hplogo",
+			"value":"hplogo",
+			"type":"LABEL"
+		},
+		{
+			"target":"lst-ib",
+			"value":"#mobileNumber",
+			"type":"INPUT"
+		},
+		{
+			"target":"lst-ib",
+			"value":"ENTER",
+			"type":"COMMAND"
+		}
+	]
+}

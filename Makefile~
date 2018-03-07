@@ -1,0 +1,15 @@
+JCC = javac
+
+JFLAGS = -g -Xlint:unchecked
+
+CF = /home/giovanni/Java/SeleniumTester
+JF = /home/giovanni/Java/Jars
+
+JsoupJar = $(JF)/jsoup.jar
+SeleniumJar =$(CF)/selenium-server-standalone-3.0.1.jar
+
+SeleniumTester.class : SeleniumTester.java
+	$(JCC) $(JFLAGS) -cp .:$(SeleniumJar) SeleniumTester.java
+
+clean:
+	rm *.class
